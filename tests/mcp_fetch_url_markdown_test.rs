@@ -71,7 +71,7 @@ fn first_text(result: &rmcp::model::CallToolResult) -> &str {
     result
         .content
         .first()
-        .and_then(|content| content.raw.as_text())
+        .and_then(|content| content.as_text())
         .map(|text| text.text.as_str())
         .expect("tool result should include text content")
 }
