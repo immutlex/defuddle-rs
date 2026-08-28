@@ -20,7 +20,7 @@ impl ClientHandler for DummyClient {
 async fn streamable_http_server_lists_defuddle_tools() -> Result<(), Box<dyn Error>> {
     let service = defuddle_rs::mcp::DefuddleMcpServer::streamable_http_service(
         StreamableHttpServerConfig::default()
-            .with_stateful_mode(false)
+            .with_legacy_session_mode(false)
             .with_json_response(true)
             .with_sse_keep_alive(None),
     );

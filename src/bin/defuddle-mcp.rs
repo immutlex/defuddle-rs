@@ -38,7 +38,7 @@ async fn run_http(args: impl Iterator<Item = String>) -> Result<(), Box<dyn Erro
     let path = normalize_path(&options.path);
 
     let config = StreamableHttpServerConfig::default()
-        .with_stateful_mode(!options.stateless)
+        .with_legacy_session_mode(!options.stateless)
         .with_json_response(options.json_response);
     let service = DefuddleMcpServer::streamable_http_service(config);
     let router = Router::new().nest_service(&path, service);
